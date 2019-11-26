@@ -7,3 +7,5 @@ Reloj con cuenta atrás.
    desea tener en cuenta el limiteMax, su valor deberá ser limiteReal = false
 4. El estilo del cronómetro está aplicado con bootstrap, por lo que debes añadir bootstrap 4.0 (como mínimo) a la página.
 5. Al editar el script, sólo modificar los valores (números o true y false), no borrar signos de puntuación (; " , etc)  
+
+Para probarlo directamente, ve a https://borilio.github.io/contador/
