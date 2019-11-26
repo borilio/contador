@@ -1,2 +1,6 @@
 # contador-o-matic
-Prueba de contador de tiempo inverso con trozos parciales
+Reloj con cuenta atrás. 
+
+
+
+Si se establece real=true, se comprueba que los días restantes nunca serán mayores de el límite establecido.  

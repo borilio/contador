@@ -17,18 +17,20 @@ function calcular(){
     //*****************************************
     //**** Configuración del contador *********
     //*****************************************
-    //
+
     var limiteDia = 2;
     var limiteMes = 12
     var limiteAno = 2019;
     var limiteHora = 23;
     var limiteMinuto = 59;
     var limiteReal = true; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
-    var parcialMax = 7;    //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
+    var parcialMax = 8;    //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
+
     //*****************************************
     //*****************************************
     //*****************************************
-     //Empezamos a calcular...
+
+    //Empezamos a calcular...
     var fechaLimite = {};
     var fechaActual = {};
     var inicializarFecha = "" + limiteMes + "/" + limiteDia + "/" + limiteAno + " " + limiteHora + ":" + limiteMinuto;
@@ -76,7 +78,7 @@ function inicio(){
 if ("addEventListener" in document) {
     document.addEventListener("DOMContentLoaded", inicio);
 } else{
-    alert("Necesito un navegador más moderno para funcionar correctamente. Por favor actualízalo.");
+    console.log("El cronométro no funcionará, no es compatible con éste navegador.");
 }
 //Fin del código Javascript
 
