@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
     <!-- Script de JS-->
     <script type="text/javascript">
@@ -24,7 +24,7 @@ function calcular(){
     var limiteHora = 23;
     var limiteMinuto = 59;
     var limiteSegundo = 59;
-    var limiteReal = false; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
+    var limiteReal = true; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
     var limiteMax = 7;      //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
 
     //*****************************************
@@ -41,17 +41,19 @@ function calcular(){
 
     //Actualizamos el HTML
     //Config
-    //Si se borra el DIV #config, se deben borrar las siguientes líneas hasta donde se indica
-    var actual = document.querySelector("#actual");
-    var limite = document.querySelector("#limite");
-    var real = document.querySelector("#real");
-    var intervalo = document.querySelector("#intervalo");
-    //Hasta aquí
+    //Si se borra el DIV #config, se pueden borrar las siguientes líneas hasta donde se indica
+    if (document.querySelector("#config") != null) {
+        var actual = document.querySelector("#actual");
+        var limite = document.querySelector("#limite");
+        var real = document.querySelector("#real");
+        var intervalo = document.querySelector("#intervalo");
 
-    actual.innerHTML = fechaActual;
-    limite.innerHTML = fechaLimite;
-    real.innerHTML = limiteReal;
-    intervalo.innerHTML = limiteMax;
+        actual.innerHTML = fechaActual;
+        limite.innerHTML = fechaLimite;
+        real.innerHTML = limiteReal;
+        intervalo.innerHTML = limiteMax;
+    }
+    //Hasta aquí
 
     //Chrono
     var s = 1000;
@@ -96,6 +98,7 @@ if ("addEventListener" in document) {
 
 
 <body>
+
     <!-- Este DIV se puede borrar sin problemas -->
     <div id="config" class="jumbotron">
         <h2 class="text-center">Contador-o-matic</h2>
@@ -105,7 +108,7 @@ if ("addEventListener" in document) {
         <hr/>
         <p>Fecha actual <span id="actual" class="badge badge-pill badge-info">...</span></p>
         <p>Fecha limite <span id="limite" class="badge badge-pill badge-info">...</span></p>
-        <p>Real <span id="real" class="badge badge-pill badge-info">...</span></p>
+        <p>Días real <span id="real" class="badge badge-pill badge-info">...</span></p>
         <p>Días máx <span id="intervalo" class="badge badge-pill badge-info">...</span></p>
     </div>
 
