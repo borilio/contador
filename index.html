@@ -24,7 +24,7 @@ function calcular(){
     var limiteHora = 23;
     var limiteMinuto = 59;
     var limiteSegundo = 59;
-    var limiteReal = true; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
+    var limiteReal = false; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
     var limiteMax = 7;      //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
 
     //*****************************************
@@ -104,7 +104,7 @@ if ("addEventListener" in document) {
         <h2 class="text-center">Contador-o-matic</h2>
         <hr/>
         <p class="lead">Configuración establecida</p>
-        <p class="small">Para cambiar la configuración, debe editar el script donde se indica. Este DIV puede borrarse sin problemas, sólo se usa para mostrar la configuración actual del script</p>
+        <p class="small">Para cambiar la configuración, hay que editar el script donde se indica. Este DIV puede borrarse sin problemas, sólo se usa para mostrar la configuración actual del script</p>
         <hr/>
         <p>Fecha actual <span id="actual" class="badge badge-pill badge-info">...</span></p>
         <p>Fecha limite <span id="limite" class="badge badge-pill badge-info">...</span></p>
@@ -115,10 +115,10 @@ if ("addEventListener" in document) {
    <!-- Copiar este DIV en donde se quiera mostrar la cuenta atrás -->
     <div id="chrono" class="container bg-dark text-light text-center">
         <div class="row">
-            <div class="col" id="dias">x</div>
-            <div class="col" id="horas">x</div>
-            <div class="col" id="minutos">x</div>
-            <div class="col" id="segundos">x</div>
+            <div class="col" id="dias">...</div>
+            <div class="col" id="horas">...</div>
+            <div class="col" id="minutos">...</div>
+            <div class="col" id="segundos">...</div>
         </div>
         <div class="row" >
             <div class="col">días</div>
