@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Titulo</title>
+    <title>Contador-o-matic</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- CSS -->
-    <!-- TODO actualizar la última versión de bootstrap   -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
     <!-- Cuerpo HTML  -->
+    <div class="jumbotron">
+        <h2 class="text-center">Contador-o-matic</h2>
+        <hr/>
+        <p class="lead">Configuración</p>
+        <p>Fecha actual <span id="actual" class="badge badge-pill badge-info">dato</span></p>
+        <p>Fecha limite <span id="limite" class="badge badge-pill badge-info">dato</span></p>
+        <p>Real <span id="real" class="badge badge-pill badge-info">dato</span></p>
+        <p>Intervalo máx <span id="intervalo" class="badge badge-pill badge-info">dato</span></p>
+    </div>
 
-
+    <div class="container bg-dark text-light text-center">
+        <div class="row">
+            <div class="col" id="dias">x</div>
+            <div class="col" id="horas">x</div>
+            <div class="col" id="minutos">x</div>
+            <div class="col" id="segundos">x</div>
+        </div>
+        <div class="row" >
+            <div class="col">días</div>
+            <div class="col">horas</div>
+            <div class="col">minutos</div>
+            <div class="col">segundos</div>
+        </div>
+    </div>
 
 
 
     <!-- Script de JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/codigo.js"></script>
 </body>
 </html>
