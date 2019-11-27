@@ -3,8 +3,8 @@ Reloj con cuenta atrás. Pruébalo en https://borilio.github.io/contador
 
 1. Establecer la fecha límite mediante las variables limiteDia, limiteMes, etc.
 2. En limiteMax se establece el número máximo de días que saldrá en el cronómetro, una vez pasado 0 se reiniciará.
-3. Si se establece limiteReal=true, no se tendrá en cuenta limiteMax y se mostrarán los días restantes, sea cual sea. Si se 
-   desea tener en cuenta el limiteMax, su valor deberá ser limiteReal = false.
+3. limiteReal indica si la cuenta atrás será real (=true) o no (=false). Ej: Si es true y quedan 23 días, saldrán los 23 días en el contador, 
+   pero si es false y quedan 23 días, saldrán los días especificados en limiteMax, no los reales (y limiteMax será ignorado).
 4. El estilo del cronómetro está aplicado con bootstrap, por lo que debes añadir bootstrap 4.0 (como mínimo) a la página.
 5. Al editar el script, sólo modificar los valores (números o true y false), no borrar signos de puntuación (; " , etc)  
 6. Si en el crono, en lugar de números aparece "NaN", es que la fecha se ha establecido mal (ej: dia=34, mes=13, etc)
