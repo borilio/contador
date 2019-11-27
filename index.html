@@ -3,7 +3,7 @@
 <head>
     <title>Contador-o-matic</title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
@@ -20,16 +20,28 @@ function calcular(){
 
     //Modificar los valores para establecer la fecha límite
     var limiteDia = 30;
-    var limiteMes = 12
+    var limiteMes = 11;
     var limiteAno = 2019;
     var limiteHora = 23;
     var limiteMinuto = 59;
     var limiteSegundo = 59;
-    var limiteReal = false; //Indica si la cuenta atrás será real (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
-    var limiteMax = 7;      //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
+    //Indica si la cuenta atrás será real (true) o no (false) (Ej: Si quedan 23 días, saldrán los 23 días en el contador)
+    var limiteReal = false;
+    //Indica el tiempo máximo en días que se mostrará en el contador de días (se reseteará cuando llegue a 0)
+    var limiteMax = 7;
+    //Indica si se muestra (true) o no (false) un mensaje dinámico en función de los días restantes
+    var limiteMensaje = true;
+    //Indica los días que deben faltar para mostrar el aviso de que quedan pocos días (desde ahí hasta 0)
+    var limitePocosDias = 2;
+
+    //Textos, por si se quieren cambiar el mensaje dinámico
+    var textoDefecto = "<strong>¡Date prisa! 😎</strong> Este chollo se acaba en...";
+    var textoPoco = "<strong>¡Date prisa! 😨</strong> Queda muy poco tiempo para que se acabe el chollo";
+    var textoAgotado = "<strong>PLAZAS AGOTADAS 😟</strong> Lo sentimos – Intenta ser más rápid@ la próxima vez";
+
 
     //*****************************************
-    //*****************************************
+    //********** Hasta aquí *******************
     //*****************************************
 
     //Empezamos a calcular...
@@ -48,11 +60,15 @@ function calcular(){
         var limite = document.querySelector("#limite");
         var real = document.querySelector("#real");
         var intervalo = document.querySelector("#intervalo");
+        var mostrarMensaje = document.querySelector("#mostrarMensaje");
+        var pocosDias = document.querySelector("#pocosDias");
 
         actual.innerHTML = fechaActual;
         limite.innerHTML = fechaLimite;
         real.innerHTML = limiteReal;
         intervalo.innerHTML = limiteMax;
+        mostrarMensaje.innerHTML = limiteMensaje;
+        pocosDias.innerHTML = limitePocosDias;
     }
     //Hasta aquí
 
@@ -66,6 +82,7 @@ function calcular(){
     var horas = document.querySelector("#horas");
     var minutos = document.querySelector("#minutos");
     var segundos = document.querySelector("#segundos");
+    var mensaje = document.querySelector("#mensaje");
 
     //Ajustamos días si real=false
     if (limiteReal) {
@@ -79,7 +96,34 @@ function calcular(){
     minutos.innerHTML = Math.floor((tiempo % h) / m);
     segundos.innerHTML = Math.floor((tiempo % m) / s);
 
-}
+    //Mostramos el mensaje, si queremos...
+    if (limiteMensaje) {
+        var diasRestantes = parseInt(dias.innerHTML);
+        //Si quedan pocos días mostramos un mensaje, si no, mensaje por defecto...
+        if (diasRestantes <= limitePocosDias) {
+            mensaje.innerHTML = textoPoco;
+            mensaje.className = "col alert-warning";
+        } else{
+            mensaje.innerHTML = textoDefecto;
+            mensaje.className = "col alert-success";
+        }
+    }
+
+    //Y si se ha pasado el tiempo puesto, ponemos todo a 0 y mensaje de agotado
+    if (tiempo <= 0) {
+        dias.innerHTML = "0";
+        horas.innerHTML = "0";
+        minutos.innerHTML = "0";
+        segundos.innerHTML = "0";
+        if (limiteMensaje){
+            mensaje.innerHTML = textoAgotado;
+            mensaje.className = "col alert-danger";
+        } else{
+            mensaje.innerHTML = "";
+            mensaje.className = "col";
+        }
+    }
+}//Fin función calcular()
 
 function inicio(){
     //Ahora repetimos el calcular cada segundos...
@@ -111,10 +155,18 @@ if ("addEventListener" in document) {
         <p>Fecha limite <span id="limite" class="badge badge-pill badge-info">...</span></p>
         <p>Días real <span id="real" class="badge badge-pill badge-info">...</span></p>
         <p>Días máx <span id="intervalo" class="badge badge-pill badge-info">...</span></p>
+        <p>Mensaje
+            <span id="mostrarMensaje" class="badge badge-pill badge-info">...</span>
+            si menor o igual de
+            <span class="badge badge-pill badge-info" id="pocosDias">...</span>
+        </p>
     </div>
 
    <!-- Copiar este DIV en donde se quiera mostrar la cuenta atrás -->
     <div id="chrono" class="container bg-dark text-light text-center">
+        <div class="row">
+            <div class="col" id="mensaje"></div>
+        </div>
         <div class="row">
             <div class="col" id="dias">...</div>
             <div class="col" id="horas">...</div>

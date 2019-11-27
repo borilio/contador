@@ -1,0 +1,7 @@
+Cambios
+------------------------
+
+26/11/19 Versión release inicial 1.0
+27/11/19 Añadido lo siguiente:
+    -Mensajes dinámicos contextuales, que se muestran según los días que quedan. Pueden configurarse el texto, los días y si se 
+    quieren desactivar éstos mensajes.
